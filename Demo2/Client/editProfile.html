@@ -1,0 +1,43 @@
+﻿<div>
+    <h1>Edit Profile</h1>
+    <br>
+    
+    <h4>Profile:</h4>
+    Name: {{vm.name}}<br />
+    Email: {{vm.email}}<br />
+    Address: {{vm.addressLine}}<br />
+    City: {{vm.zip}} {{vm.city}} 
+    <br />
+    <br />
+
+    <h4>ApiKeys:</h4>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>ExpireDate</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="item in vm.apiKeys">
+            <td>{{item.name}}</td>
+            <td>{{item.expireDate}}</td>
+            <td> <a href="" ng-click="vm.deleteKey($index)">delete</a></td>
+        </tr>
+    </table>
+    
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-2">
+                <input type="text" placeholder="apiKey name" class="form-control input-md" ng-model="vm.apiKey">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-info" ng-click="vm.addKey()">Add</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="alert alert-info" ng-show="vm.apiKeyText">
+        <strong>Copy your apiKey, this will only be displayed once!</strong><br><br>
+        {{vm.apiKeyText}}
+    </div>
+
+</div>
