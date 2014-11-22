@@ -20,7 +20,7 @@
             }
 
             /*
-            if (!$rootScope.indentity.isInAnyRole(toParams.access)) {
+            if (!$rootScope.indentity.isInAnyRole(currRoute.access)) {
                 $rootScope.error = "Seems like you tried accessing a route you don't have access to...";
                 theEvent.preventDefault();
 

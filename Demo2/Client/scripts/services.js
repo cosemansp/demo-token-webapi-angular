@@ -14,10 +14,13 @@
             $http.post('api/auth/login', { email: email, password: password })
                 .then(function (response) {
                     var accessToken = response.data.accessToken;
+                    var refreshToken = response.data.refreshToken;
                     $window.sessionStorage.setItem("token", accessToken);
+                    $window.sessionStorage.setItem("refreshToken", refreshToken);
                     if (rememberMe) {
                         // keep token in localStorage
                         $window.localStorage.setItem('token', accessToken);
+                        $window.localStorage.setItem("refreshToken", refreshToken);
                     }
 
                     // parse token to get claims
